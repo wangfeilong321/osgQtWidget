@@ -1,0 +1,43 @@
+SET(NAME stldemo)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+INCLUDE(OsgMacroUtils)
+
+FIND_PACKAGE(Qt4 REQUIRED)
+SET(QT_USE_QTOPENGL TRUE)
+INCLUDE(${QT_USE_FILE})
+ADD_DEFINITIONS(${QT_DEFINITIONS})
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOUIC ON)
+
+SET(TARGET_COMMON_LIBRARIES
+    OpenThreads
+    osg
+    osgDB
+    osgUtil
+    osgGA
+    osgViewer
+    osgText
+    osgWidget
+    osgQt
+)
+
+SET(TARGET_EXTERNAL_LIBRARIES
+ ${QT_LIBRARIES}
+)
+
+SET(TARGET_SRC
+    main.cpp
+    osgqtwidgets.cpp
+)
+
+SET(TARGET_H
+    osgqtwidgets.h
+)
+SET(CMAKE_CXX_FLAGS_DEBUG " -O0 -Wall -g -ggdb ")
+SET(CMAKE_CXX_FLAGS_RELEASE " -O3 -Wall")
+
+SETUP_APPLICATION(${NAME})
