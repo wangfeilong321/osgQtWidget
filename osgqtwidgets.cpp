@@ -187,3 +187,5 @@ void ViewerFrameThread::run()
 {
     _viewerBase->run();
 }
+
+#include "moc_osgqtwidgets.cpp"
